@@ -1,0 +1,72 @@
+locks=stocks=barrels=0
+plocks=45
+pstocks=30
+pbarrels=25
+slocks=sstocks=sbarrels=sales=com=0
+tcom=tsales=tstocks=tlocks=tbarrels=0
+ch=1
+while ch==1:
+    try:
+        while 1:
+            locks=int(input("Enter the no of locks:"))
+            if locks>=0:
+                break
+            print("Invalid locks")
+
+        while 1:
+            stocks=int(input("Enter the no of stocks:"))
+            if stocks>=0:
+                break
+            print("Invalid stocks")
+
+        while 1:
+            barrels=int(input("Enter the no of barrels"))
+            if barrels>=0:
+                break
+            print("Invalid barrels")
+
+        if locks<0 or stocks<0 or barrels<0:
+            print("Invalid Inputs")
+            exit(0)
+
+        tstocks=tstocks+stocks
+        tlocks=tlocks+locks
+        tbarrels=tbarrels+barrels
+
+        if locks==0 and stocks==0 and barrels==0:
+            print("NO COMMISSION")
+            exit(0)
+
+        slocks=locks*plocks
+        sstocks=stocks*pstocks
+        sbarrels=barrels*pbarrels
+
+        sales=sbarrels+sstocks+slocks
+        tsales=tsales+sales
+
+        if sales>1800:
+            com=0.10*1000
+            com=com+0.15*800
+            com=com+0.20*(sales-1800)
+
+        elif sales>1000:
+            com=0.10*1000
+            com=com+0.15*(sales-1000)
+
+        else:
+            com=sales*0.10
+
+        print("\nTotal Sales:",sales,"\nTotal Commision:",com)
+        tcom=tcom+com
+
+    except Exception as e:
+        print(e)
+        exit(0)
+
+    ch=int(input("press 1 to continue /0 to exit:"))
+
+print("TOTAL LOCKS:",tlocks)
+print("TOTAL STOCKS:",tstocks)
+print("TOTAL BARRELS:",tbarrels)
+print("TOTAL SALES:",tsales)
+print("TOTAL COMMISION:",tcom)

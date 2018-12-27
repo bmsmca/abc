@@ -1,0 +1,23 @@
+def triangle(a,b,c):
+    if a<=0 or b<=0 or c<=0:
+        print("Invalid DImensions")
+    else:
+        if a<(b+c) and b<(c+a) and c<(a+b):
+            if a!=b and b!=c and c!=a:
+                print("It is Scalene")
+            elif a==b and b==c and c==a:
+                print("It is a equilateral")
+            else:
+                print("It is Isosceles")
+        else:
+            print("Triangle not possible")
+
+ch=1
+while(ch==1):
+    print("TRIANGLE PROBLEM")
+    a=int(input("Enter the value of 1st side:"))
+    b=int(input("Enter the value of 2nd side:"))
+    c=int(input("Enter the value of 3rd side:"))
+
+    triangle(a,b,c)
+    ch=int(input("Press 1 to continue or 0 to exit"))

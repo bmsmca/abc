@@ -1,0 +1,12 @@
+ch=1
+while ch!=0:
+    try:
+        n=int(input("Enter the value of n:"))
+        if n<=0 or n>100:
+            print("Invalid Range")
+        else:
+            print("Valid Range")
+    except Exception:
+        print("The Range is invalid .. Enter a Valid Range")
+
+    ch=int(input("Press 1 to continue 0 to exit"))

@@ -1,0 +1,31 @@
+def binary(a,key,n):
+    low=0
+    high=n-1
+    pos=-1
+    flag=False
+
+    while low<=high and not(flag):
+        mid=(low+high)//2
+
+        if a[mid]==key:
+            pos=mid+1
+            flag=True
+        elif key>a[mid]:
+            low=mid+1
+        else:
+            high=mid-1
+    return pos
+
+n=int(input("Enter the no of elements:"))
+a=[]
+for i in range(0,n):
+    a.append(int(input("Enter the  elements")))
+
+a.sort()
+print(a)
+key=int(input("Enter the key element to be searched:"))
+pos=binary(a,key,n)
+if pos==-1:
+    print("Key not found")
+else:
+    print("key found at position ",pos)
